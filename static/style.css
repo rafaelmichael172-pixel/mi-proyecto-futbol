@@ -1,0 +1,10 @@
+body { margin: 0; background-color: #0b1118; color: #e1e7ed; font-family: 'Inter', sans-serif; }
+.content { max-width: 1600px; margin: auto; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #131e29; }
+::-webkit-scrollbar-thumb { background: #374df5; border-radius: 3px; }
+#leagues-list { max-height: calc(100vh - 100px); overflow-y: auto; }
+#games-list-container { height: calc(100vh - 100px); overflow-y: auto; }
+#game-content api-sports-widget { max-height: 80vh; overflow-y: auto; }
+#standings-content api-sports-widget, #team-content api-sports-widget { margin-bottom: 1rem; max-height: 60vh; overflow-y: auto; }
+.card { background-color: #16202c; box-shadow: 0 4px 6px rgba(0,0,0,0.3); }
