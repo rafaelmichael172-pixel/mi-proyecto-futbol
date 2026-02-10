@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones {{ casa.name }} - Bono y Análisis 2026</title>
+    <style>
+        body { font-family: sans-serif; max-width: 700px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+        .header-review { text-align: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
+        .logo-review { max-width: 200px; }
+        .cta-box { background: #f9f9f9; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #ddd; margin: 20px 0; }
+        .btn-big { background: #27ae60; color: white; padding: 15px 30px; text-decoration: none; font-size: 1.2rem; border-radius: 5px; display: inline-block; }
+        .back-link { display: block; margin-top: 20px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <div class="header-review">
+        <img src="{{ casa.logo_url }}" alt="Logo {{ casa.name }}" class="logo-review">
+        <h1>Análisis de {{ casa.name }} Perú</h1>
+        <p>{{ casa.stars }} {{ casa.rating }}/5.0</p>
+    </div>
+
+    <h2>¿Qué ofrece el bono de bienvenida?</h2>
+    <p>El bono actual consiste en: <strong>{{ casa.bonus_title }}</strong>.</p>
+    
+    <div class="cta-box">
+        <h3>🎁 Reclama tu oferta exclusiva</h3>
+        <p>Condición: {{ casa.rollover }}</p>
+        <a href="{{ casa.affiliate_link }}" class="btn-big">QUIERO MI BONO EN {{ casa.name | upper }}</a>
+    </div>
+
+    <h2>Nuestra Opinión</h2>
+    <p>{{ casa.review_text }}</p>
+
+    <h3>Ventajas Principales</h3>
+    <ul>
+        {% for pro in casa.pros %}
+        <li>✅ {{ pro }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="/" class="back-link">← Volver al Ranking Principal</a>
+
+</body>
+</html>
