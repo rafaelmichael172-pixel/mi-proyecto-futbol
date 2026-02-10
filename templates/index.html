@@ -3,84 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top 10 Casas de Apuestas | Perú</title>
+    <title>ApuestaTop LATAM</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-    <header class="top-header">
-        <div class="logo-area">
-            <span class="icon">🎲</span> TOP 10 <span class="subtitle">CASAS APUESTA</span>
-        </div>
-        <div class="sub-header">
-            <h2>MEJORES <span class="highlight">CASAS DE APUESTAS</span> EN PERÚ</h2>
-            <div class="trust-icons">
-                <span>✅ 100% Legales</span>
-                <span>💸 Retiros Rápidos</span>
-            </div>
-        </div>
+    <header>
+        <div class="logo-text">APUESTA<span class="logo-highlight">TOP</span></div>
+        <div class="subtitle">COMPARADOR Nº1 EN LATINOAMÉRICA</div>
     </header>
-
-    <div class="disclaimer-top">
-        Declaración del Anunciante | 18+ | Publicidad | Juega con responsabilidad.
-    </div>
 
     <div class="container">
         {% for casa in casas %}
-        <div class="card-wrapper">
-            {% if casa.etiqueta %}
-            <div class="tag-header" style="background-color: {{ casa.etiqueta_color }}; color: {{ casa.etiqueta_texto_color }};">
+        <div class="card">
+            <div class="tag" style="background-color: {{ casa.etiqueta_color }};">
                 {{ casa.etiqueta }}
             </div>
-            {% endif %}
-
-            <div class="card">
-                <div class="card-left">
+            <div class="card-content">
+                <div class="left-col">
                     <img src="{{ casa.logo }}" alt="{{ casa.nombre }}" class="bookie-logo">
-                    <div class="score-box">
-                        <span class="score-label">Nuestra Puntuación</span>
-                        <div class="stars">⭐⭐⭐⭐⭐</div>
-                        <span class="score-number">{{ casa.puntuacion }}</span>
-                    </div>
+                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <div class="score">{{ casa.puntuacion }}</div>
                 </div>
-
-                <div class="card-right">
-                    <div class="bonus-info">
-                        <span class="bonus-title">{{ casa.bono_titulo }}</span>
-                        <h3 class="bonus-amount">{{ casa.bono_desc }}</h3>
-                        {% if casa.codigo %}
-                        <div class="code-box">{{ casa.codigo }}</div>
-                        {% endif %}
-                    </div>
-                    
-                    <a href="{{ casa.link }}" target="_blank" class="cta-button">OBTÉN EL BONO</a>
-                    
-                    <div class="terms-mini">
-                        <p>{{ casa.legal }}</p>
-                        {% if casa.autorizado %}
-                        <span class="auth-badge">🇵🇪 Autorizado</span>
-                        {% endif %}
-                    </div>
+                <div class="right-col">
+                    <div class="bonus-title">{{ casa.bono_titulo }}</div>
+                    <div class="bonus-amount">{{ casa.bono_desc }}</div>
+                    <a href="{{ casa.link }}" class="btn" target="_blank">OBTENER BONO ➤</a>
+                    <div class="legal-text">{{ casa.legal }}</div>
                 </div>
             </div>
         </div>
         {% endfor %}
-
-        <div class="seo-content">
-            <h3>Los mejores sitios de apuestas en Perú</h3>
-            <p>En este artículo puedes encontrar una selección de los mejores sitios...</p>
-            <h3>Cómo apostar en deportes</h3>
-            <p>Uno de los requisitos esenciales para apostar es ser mayor de 18 años...</p>
-            </div>
+        <p style="text-align: center; color: #555; font-size: 10px; margin-top: 20px;">© 2026 ApuestaTop. +18 Juega Responsable.</p>
     </div>
-
-    <footer>
-        <div class="footer-icons">
-            🚫 18+ | Jugar con responsabilidad | Gambling Therapy
-        </div>
-        <p>Copyright © 2026 Top10Casas. Todos los derechos reservados.</p>
-    </footer>
-
 </body>
 </html>
