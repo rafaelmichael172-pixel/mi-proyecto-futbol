@@ -2,52 +2,77 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# --- BASE DE DATOS REAL (PERÚ 2026) ---
+# DATOS DE LA WEB (Fáciles de editar)
+SITE_CONFIG = {
+    "nombre": "TopApuestas Perú",
+    "dominio": "topapuestas.pe",  # Cambia esto cuando tengas dominio
+    "contacto": "contacto@topapuestas.pe"
+}
+
+# DATOS DE LAS CASAS (Tus "Productos")
 CASAS = [
     {
-        "id": "betano",
-        "name": "Betano",
-        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Betano_Logo_2024.svg",
-        "stars": "⭐⭐⭐⭐⭐",
-        "rating_num": "5.0",
-        "bonus_short": "S/500 GRATIS",
-        "bonus_desc": "Bono de Bienvenida + S/75 Apuesta Gratis",
-        "code": "BETAPE", # Tu código para SEO
-        "pros": ["Pagos con Yape/Plin", "App Android/iOS", "Cuotas Mejoradas"],
-        "rollover": "x7.5",
-        "link": "https://www.betano.pe/myaccount/register/" # CAMBIA ESTO POR TU LINK DE AFILIADO
+        "id": 1,
+        "nombre": "Betano",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Betano_Logo.png",
+        "etiqueta": "MEJOR EN PERÚ",
+        "etiqueta_color": "#ff4b4b", # Rojo vibrante
+        "etiqueta_texto_color": "#ffffff",
+        "puntuacion": "4.9",
+        "estrellas": 5,
+        "bono_titulo": "BONO EXCLUSIVO",
+        "bono_desc": "S/500 + 20% Extra",
+        "link": "https://tu-link-afiliado.com/betano", # <--- TU LINK AQUÍ
+        "legal": "18+ | Aplican T&C | Nuevos usuarios",
+        "autorizado": True
     },
     {
-        "id": "bet365",
-        "name": "Bet365",
-        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Bet365_Logo.svg/1024px-Bet365_Logo.svg.png",
-        "stars": "⭐⭐⭐⭐⭐",
-        "rating_num": "4.9",
-        "bonus_short": "S/500 BONO",
-        "bonus_desc": "50% de créditos de apuesta extra",
-        "code": "365LATAM",
-        "pros": ["Líder Mundial", "Streaming HD", "Retiro Instantáneo"],
-        "rollover": "x1",
-        "link": "https://www.bet365.com/olp/open-account" # CAMBIA ESTO POR TU LINK DE AFILIADO
+        "id": 2,
+        "nombre": "Betsson",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Betsson_Logo.png",
+        "etiqueta": "PAGOS RÁPIDOS",
+        "etiqueta_color": "#ff9900", # Naranja
+        "etiqueta_texto_color": "#000000",
+        "puntuacion": "4.8",
+        "estrellas": 5,
+        "bono_titulo": "APUESTA GRATUITA",
+        "bono_desc": "S/40 Gratis o Cero Riesgo",
+        "link": "https://tu-link-afiliado.com/betsson", # <--- TU LINK AQUÍ
+        "legal": "Depósito mín. S/20 | Rollover x3",
+        "autorizado": True
     },
     {
-        "id": "inkabet",
-        "name": "Inkabet",
-        "logo_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Inkabet_Logo.png",
-        "stars": "⭐⭐⭐⭐☆",
-        "rating_num": "4.7",
-        "bonus_short": "S/10 GRATIS",
-        "bonus_desc": "S/10 por registrarte sin depósito",
-        "code": "INKAMAX",
-        "pros": ["Casa 100% Peruana", "Bonos de Recarga", "Atención WhatsApp"],
-        "rollover": "x10",
-        "link": "https://www.inkabet.pe/registro" # CAMBIA ESTO POR TU LINK DE AFILIADO
+        "id": 3,
+        "nombre": "Inkabet",
+        "logo": "https://seeklogo.com/images/I/inkabet-logo-36B6F68414-seeklogo.com.png",
+        "etiqueta": "100% PERUANA",
+        "etiqueta_color": "#f8f9fa",
+        "etiqueta_texto_color": "#333",
+        "puntuacion": "4.7",
+        "estrellas": 4,
+        "bono_titulo": "DUPLICA TU 1ER DEPÓSITO",
+        "bono_desc": "Hasta S/800 de Bono",
+        "link": "https://tu-link-afiliado.com/inkabet", # <--- TU LINK AQUÍ
+        "legal": "18+ | Juega Responsable",
+        "autorizado": True
     }
 ]
 
 @app.route('/')
-def index():
-    return render_template('index.html', casas=CASAS)
+def home():
+    return render_template('index.html', casas=CASAS, config=SITE_CONFIG)
+
+@app.route('/terminos-y-condiciones')
+def terminos():
+    return render_template('legal_terms.html', config=SITE_CONFIG)
+
+@app.route('/politica-de-privacidad')
+def privacidad():
+    return render_template('legal_privacy.html', config=SITE_CONFIG)
+
+@app.route('/juego-responsable')
+def juego_responsable():
+    return render_template('legal_responsible.html', config=SITE_CONFIG)
 
 if __name__ == '__main__':
     app.run(debug=True)
