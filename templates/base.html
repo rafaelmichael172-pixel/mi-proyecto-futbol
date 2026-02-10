@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mejores Casas de Apuestas{% endblock %} | TopApuestas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">🎲 TopApuestas<span class="pe">.pe</span></div>
+        <div class="legal-badge">🔞 +18 Años</div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <a href="{{ url_for('terminos') }}">Términos y Condiciones</a>
+            <a href="{{ url_for('privacidad') }}">Política de Privacidad</a>
+            <a href="{{ url_for('juego_responsable') }}">Juego Responsable</a>
+        </div>
+        
+        <div class="disclaimer">
+            <p><strong>Aviso de Publicidad:</strong> Somos un sitio de comparación independiente financiado por referidos. Las ofertas mostradas pueden cambiar.</p>
+            <p>El juego puede ser adictivo. Juega con responsabilidad. Si tienes problemas con el juego, busca ayuda.</p>
+        </div>
+        
+        <div class="copyright">
+            © 2026 TopApuestas Perú. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+</html>
