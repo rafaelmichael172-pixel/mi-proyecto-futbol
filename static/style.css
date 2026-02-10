@@ -1,0 +1,175 @@
+/* Reset y Fuentes */
+body {
+    background-color: #1a1a1a; /* Fondo oscuro como en el video */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+.top-header {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.logo-area {
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+}
+.logo-area .icon { color: red; }
+
+.sub-header h2 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+.highlight { text-decoration: underline; text-decoration-color: red; }
+
+.trust-icons {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.disclaimer-top {
+    background-color: #333;
+    color: #aaa;
+    font-size: 10px;
+    text-align: center;
+    padding: 5px;
+}
+
+/* Contenedor Principal */
+.container {
+    max-width: 600px; /* Ancho tipo móvil */
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Tarjetas */
+.card-wrapper {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tag-header {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card {
+    background: white;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+/* Columna Izquierda (Logo y Score) */
+.card-left {
+    width: 35%;
+    text-align: center;
+    border-right: 1px solid #eee;
+    padding-right: 10px;
+}
+
+.bookie-logo {
+    width: 100%;
+    max-width: 100px;
+    margin-bottom: 10px;
+}
+
+.score-box { text-align: center; }
+.score-label { font-size: 10px; color: #666; display: block; }
+.stars { font-size: 10px; color: gold; margin: 2px 0; }
+.score-number { font-size: 24px; font-weight: 900; color: #4CAF50; } /* Verde puntuación */
+
+/* Columna Derecha (Bono y Botón) */
+.card-right {
+    width: 65%;
+    padding-left: 15px;
+    text-align: center;
+}
+
+.bonus-title {
+    font-size: 10px;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.bonus-amount {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #000;
+}
+
+.code-box {
+    background: #f0f0f0;
+    border: 1px dashed #999;
+    padding: 3px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+/* Botón Rojo "OBTÉN EL BONO" */
+.cta-button {
+    display: block;
+    background-color: #dc3545; /* Rojo intenso */
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 12px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 0 #a71d2a; /* Efecto 3D botón */
+    transition: transform 0.1s;
+}
+
+.cta-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #a71d2a;
+}
+
+.terms-mini {
+    margin-top: 8px;
+    font-size: 10px;
+    color: #777;
+}
+
+.auth-badge {
+    display: inline-block;
+    margin-top: 2px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* SEO Content Area */
+.seo-content {
+    background: #222; /* Gris oscuro para el texto SEO */
+    color: #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    font-size: 12px;
+    padding: 20px;
+    background: #000;
+    margin-top: 20px;
+}

@@ -3,82 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mejores Bonos de Apuestas Perú 2026</title>
-    <style>
-        :root { --green: #00c853; --dark: #121212; --blue: #2962ff; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; color: #333; }
-        
-        header { background: var(--dark); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--green); }
-        .container { max-width: 950px; margin: -30px auto 50px; padding: 0 15px; }
-
-        /* ESTILO TABLA DE COMPARACIÓN */
-        .ranking-row {
-            background: white; border-radius: 12px; display: grid; 
-            grid-template-columns: 150px 1fr 200px; align-items: center;
-            padding: 20px; margin-bottom: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border: 1px solid #e0e0e0; transition: 0.3s;
-        }
-        .ranking-row:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); border-color: var(--green); }
-
-        .logo-box { text-align: center; border-right: 1px solid #eee; padding: 10px; }
-        .logo-box img { width: 110px; height: auto; display: block; margin: 0 auto 10px; }
-        .rating-val { font-weight: bold; font-size: 18px; color: #444; }
-
-        .info-box { padding: 0 25px; }
-        .info-box h3 { margin: 0; font-size: 22px; color: var(--green); text-transform: uppercase; }
-        .bonus-text { font-size: 14px; color: #666; margin: 5px 0; }
-        .code-badge { background: #fff3e0; border: 1px dashed #ff9800; padding: 4px 10px; font-size: 12px; display: inline-block; margin-top: 5px; border-radius: 4px; }
-
-        .action-box { text-align: center; }
-        .btn-claim { 
-            background: var(--green); color: white; text-decoration: none; 
-            padding: 16px; border-radius: 8px; font-weight: bold; font-size: 16px;
-            display: block; box-shadow: 0 4px 12px rgba(0,200,83,0.3);
-            transition: 0.2s;
-        }
-        .btn-claim:hover { background: #00a846; transform: scale(1.03); }
-        .small-link { font-size: 11px; color: #999; margin-top: 8px; display: block; text-decoration: none; }
-
-        @media (max-width: 700px) {
-            .ranking-row { grid-template-columns: 1fr; gap: 20px; text-align: center; }
-            .logo-box { border-right: none; }
-        }
-    </style>
+    <title>Top 10 Casas de Apuestas | Perú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<header>
-    <h1>🔥 TOP 3 BONOS DE APUESTAS PERÚ 2026</h1>
-    <p>Solo sitios con licencia oficial MINCETUR</p>
-</header>
-
-<div class="container">
-    {% for casa in casas %}
-    <div class="ranking-row">
-        <div class="logo-box">
-            <img src="{{ casa.logo_url }}" alt="{{ casa.name }}">
-            <div class="rating-val">{{ casa.rating_num }}</div>
-            <div style="font-size: 12px;">{{ casa.stars }}</div>
+    <header class="top-header">
+        <div class="logo-area">
+            <span class="icon">🎲</span> TOP 10 <span class="subtitle">CASAS APUESTA</span>
         </div>
-
-        <div class="info-box">
-            <h3>{{ casa.bonus_short }}</h3>
-            <p class="bonus-text">{{ casa.bonus_desc }}</p>
-            <div style="font-size: 13px; color: #555;">
-                {% for pro in casa.pros %}
-                • {{ pro }} 
-                {% endfor %}
+        <div class="sub-header">
+            <h2>MEJORES <span class="highlight">CASAS DE APUESTAS</span> EN PERÚ</h2>
+            <div class="trust-icons">
+                <span>✅ 100% Legales</span>
+                <span>💸 Retiros Rápidos</span>
             </div>
-            <div class="code-badge">CÓDIGO: <strong>{{ casa.code }}</strong></div>
         </div>
+    </header>
 
-        <div class="action-box">
-            <a href="{{ casa.link }}" target="_blank" class="btn-claim">¡QUIERO MI BONO!</a>
-            <span class="small-link">Rollover: {{ casa.rollover }} | +18</span>
-        </div>
+    <div class="disclaimer-top">
+        Declaración del Anunciante | 18+ | Publicidad | Juega con responsabilidad.
     </div>
-    {% endfor %}
-</div>
+
+    <div class="container">
+        {% for casa in casas %}
+        <div class="card-wrapper">
+            {% if casa.etiqueta %}
+            <div class="tag-header" style="background-color: {{ casa.etiqueta_color }}; color: {{ casa.etiqueta_texto_color }};">
+                {{ casa.etiqueta }}
+            </div>
+            {% endif %}
+
+            <div class="card">
+                <div class="card-left">
+                    <img src="{{ casa.logo }}" alt="{{ casa.nombre }}" class="bookie-logo">
+                    <div class="score-box">
+                        <span class="score-label">Nuestra Puntuación</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="score-number">{{ casa.puntuacion }}</span>
+                    </div>
+                </div>
+
+                <div class="card-right">
+                    <div class="bonus-info">
+                        <span class="bonus-title">{{ casa.bono_titulo }}</span>
+                        <h3 class="bonus-amount">{{ casa.bono_desc }}</h3>
+                        {% if casa.codigo %}
+                        <div class="code-box">{{ casa.codigo }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <a href="{{ casa.link }}" target="_blank" class="cta-button">OBTÉN EL BONO</a>
+                    
+                    <div class="terms-mini">
+                        <p>{{ casa.legal }}</p>
+                        {% if casa.autorizado %}
+                        <span class="auth-badge">🇵🇪 Autorizado</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="seo-content">
+            <h3>Los mejores sitios de apuestas en Perú</h3>
+            <p>En este artículo puedes encontrar una selección de los mejores sitios...</p>
+            <h3>Cómo apostar en deportes</h3>
+            <p>Uno de los requisitos esenciales para apostar es ser mayor de 18 años...</p>
+            </div>
+    </div>
+
+    <footer>
+        <div class="footer-icons">
+            🚫 18+ | Jugar con responsabilidad | Gambling Therapy
+        </div>
+        <p>Copyright © 2026 Top10Casas. Todos los derechos reservados.</p>
+    </footer>
 
 </body>
 </html>
